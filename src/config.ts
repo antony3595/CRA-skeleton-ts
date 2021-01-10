@@ -27,7 +27,7 @@ export const BUILD_TYPES: BuildTypesInterface = {
 const defaultConfig: Config = {
 	BUILD_TYPE: BUILD_TYPES.PRODUCTION,
 	isProduction: () => process.env.REACT_APP_BUILD_TYPE === BUILD_TYPES.PRODUCTION,
-	API_BASE_URL: "http://127.0.0.1:8000/api/",
+	API_BASE_URL: "https://jsonplaceholder.typicode.com/",
 };
 
 const buildTypeConfigs: ConfigsSet = {

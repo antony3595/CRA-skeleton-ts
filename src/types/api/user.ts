@@ -1,4 +1,4 @@
-// user interface from https://jsonplaceholder.typicode.com/users
+// user interface for https://jsonplaceholder.typicode.com/users
 
 export interface User {
 	id: number;
