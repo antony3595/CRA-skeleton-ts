@@ -1,36 +1,47 @@
 interface BuildTypesInterface {
-	PRODUCTION: string;
-	DEBUG: string;
-	MOCK: string;
+	PRODUCTION: BuildType;
+	DEVELOPMENT: BuildType;
+	MOCK: BuildType;
 }
 
-type BuildType = "production" | "debug" | "mock";
+type BuildType = "production" | "development" | "mock";
 
 interface Config {
-	[key: string]: any;
+	BUILD_TYPE: string;
+	isProduction: () => boolean;
+	API_BASE_URL: string;
+}
+
+interface ConfigsSet {
+	production?: Config;
+	development?: Config;
+	mock?: Config;
 }
 
 export const BUILD_TYPES: BuildTypesInterface = {
 	PRODUCTION: "production",
-	DEBUG: "debug",
+	DEVELOPMENT: "development",
 	MOCK: "mock",
 };
 
 const defaultConfig: Config = {
 	BUILD_TYPE: BUILD_TYPES.PRODUCTION,
 	isProduction: () => process.env.REACT_APP_BUILD_TYPE === BUILD_TYPES.PRODUCTION,
+	API_BASE_URL: "http://127.0.0.1:8000/api/",
 };
 
-const buildTypeConfig: any = {
-	debug: {
-		BUILD_TYPE: BUILD_TYPES.DEBUG,
+const buildTypeConfigs: ConfigsSet = {
+	development: {
+		...defaultConfig,
+		BUILD_TYPE: BUILD_TYPES.DEVELOPMENT,
 	},
 	mock: {
+		...defaultConfig,
 		BUILD_TYPE: BUILD_TYPES.MOCK,
 	},
 };
 
 const buildType: BuildType = process.env["REACT_APP_BUILD_TYPE"] as BuildType;
-const config: Config = { ...defaultConfig, ...buildTypeConfig[buildType] };
+const config: Config = { ...defaultConfig, ...buildTypeConfigs[buildType] };
 
 export default config;
