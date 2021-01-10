@@ -5,7 +5,7 @@ import { User } from "../types/api/user";
 
 const baseURL = config.API_BASE_URL;
 
-const mainAPI: AxiosInstance = axios.create({
+export const mainAPI: AxiosInstance = axios.create({
 	baseURL,
 	headers: {
 		"content-type": "application/json",

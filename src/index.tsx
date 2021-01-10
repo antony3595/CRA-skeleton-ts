@@ -1,15 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './stylesheets/reset.scss';
-import './stylesheets/index.scss';
-import App from './components/App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./stylesheets/reset.scss";
+import "./stylesheets/index.scss";
+import App from "./components/App";
+import reportWebVitals from "./reportWebVitals";
+import config, { BUILD_TYPES } from "./config";
+import enableMockAPI from "./mock/api";
+
+if (config.BUILD_TYPE === BUILD_TYPES.MOCK) enableMockAPI();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
