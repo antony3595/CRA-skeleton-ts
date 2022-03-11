@@ -3,7 +3,7 @@
 -   react-router-dom
 -   redux
 -   react-redux
--   redux-saga
+-   redux-thunk
 -   redux-devtools
 -   node-sass
 -   eslint
