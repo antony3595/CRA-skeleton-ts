@@ -19,7 +19,7 @@ export const saveState = (store: any) => {
 		});
 
 		localStorage.setItem("skeletonState", serializedStore);
-	} catch (err) {
+	} catch (err: any) {
 		new Error(err);
 	}
 };
