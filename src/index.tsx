@@ -4,10 +4,10 @@ import "./stylesheets/reset.scss";
 import "./stylesheets/index.scss";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
-import config, { BUILD_TYPES } from "./config";
+import config, { BuildType } from "./config";
 import enableMockAPI from "./mock/api";
 
-if (config.BUILD_TYPE === BUILD_TYPES.MOCK) enableMockAPI();
+if (config.BUILD_TYPE === BuildType.MOCK) enableMockAPI();
 
 ReactDOM.render(
 	<React.StrictMode>
