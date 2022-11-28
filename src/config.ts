@@ -1,10 +1,11 @@
 import { BuildType, BuildTypesScheme, Config } from "./types/config";
 
 const defaultConfig: Config = {
-	stateVersion: 0.0,
+	stateVersion: 0.1, // saved redux state reloads if config version not equal state
 	BUILD_TYPE: BuildType.PRODUCTION,
 	isProduction: () => process.env.REACT_APP_BUILD_TYPE === BuildType.PRODUCTION,
 	API_URL: "http://fakeapi.mock/",
+	localStorageKey: "cra_storage"
 };
 
 const buildTypeConfigs: BuildTypesScheme = {

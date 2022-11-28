@@ -9,6 +9,7 @@ export interface Config {
 	stateVersion: number;
 	isProduction: () => boolean;
 	API_URL: string;
+	localStorageKey: string;
 }
 
 interface OverridableConfig extends Partial<Config> {
